@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="90dp"
+android:background="@android:color/transparent"
+        android:id="@+id/city_item">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="30dp"
+              android:text="2014-07-23 09:00:00"
+              android:textSize="16sp"
+              android:textColor="@android:color/white"
+    android:layout_marginTop="30dp"
+              android:layout_marginStart="10dp"
+    android:id="@+id/time_text_view_item_forecast"/>
+
+    <ImageView android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginStart="50dp"
+               android:src="@drawable/ic_cloud_white_24dp"
+               android:layout_toEndOf="@+id/time_text_view_item_forecast"
+    android:id="@+id/icon_image_view_item_forecast"/>
+
+    <TextView android:layout_width="50dp"
+              android:layout_height="50dp"
+              android:layout_marginTop="20dp"
+              android:layout_marginStart="30dp"
+              android:layout_toEndOf="@+id/icon_image_view_item_forecast"
+              android:text="27℃"
+              android:textSize="15sp"
+              android:gravity="center"
+              android:textColor="@android:color/white"
+    android:id="@+id/temp_max_text_view_item_forecast"/>
+
+    <TextView android:layout_width="50dp"
+              android:layout_height="50dp"
+              android:layout_marginTop="20dp"
+              android:layout_marginStart="10dp"
+              android:layout_toEndOf="@+id/temp_max_text_view_item_forecast"
+              android:text="17℃"
+              android:textSize="15sp"
+              android:gravity="center"
+              android:textColor="@android:color/white"
+              android:id="@+id/temp_min_text_view_item_forecast"/>
+
+</RelativeLayout>

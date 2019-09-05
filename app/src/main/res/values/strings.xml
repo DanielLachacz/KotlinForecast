@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinForecast</string>
+    <string name="temp">" ℃"</string>
+</resources>

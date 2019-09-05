@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+        android:text="Rome"
+        android:textSize="20sp"
+            android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="90dp"
+            android:id="@+id/city_city_text_view_item"/>
+
+    <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_location_on_white_24dp"
+            android:id="@+id/point_city_image_view_item"/>
+
+</RelativeLayout>

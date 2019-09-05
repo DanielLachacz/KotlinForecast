@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.kotlinforecast.ui.CityActivity">
+
+    <data>
+        <variable name="cityViewModel"
+                  type="com.example.kotlinforecast.ui.CityViewModel"/>
+    </data>
+
+
+    <ScrollView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+    android:background="@color/main"
+    android:id="@+id/city_activity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="50dp"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:gravity="center"
+                      android:foregroundGravity="center_vertical"
+                      android:textColor="@android:color/white"
+                      android:textSize="20sp"
+                      android:text="@={cityViewModel.city}"
+                      android:id="@+id/city_city_text_view"
+                      android:layout_marginEnd="50dp"
+                      android:layout_marginStart="50dp"
+                      app:layout_constraintEnd_toStartOf="@+id/search_city_button"/>
+
+            <ImageButton android:layout_width="50dp"
+                         android:layout_height="50dp"
+                         app:layout_constraintTop_toTopOf="parent"
+                         android:layout_marginTop="0dp"
+                         android:layout_alignParentEnd="true"
+                         android:src="@drawable/ic_list_white_24dp"
+                         android:background="@android:color/transparent"
+                         app:layout_constraintEnd_toEndOf="parent"
+                         android:clickable="true"
+                    android:contextClickable="true"
+                         android:focusable="true"
+                         android:id="@+id/search_city_button" />
+
+            <ImageButton android:layout_width="50dp"
+                         android:layout_height="50dp"
+                         app:layout_constraintEnd_toStartOf="@+id/city_city_text_view"
+                         app:layout_constraintTop_toTopOf="parent"
+                         android:clickable="true"
+                         android:focusable="true"
+                         android:src="@drawable/ic_location_on_white_24dp"
+                         android:background="@android:color/transparent"
+                         android:id="@+id/location_button"
+                         android:layout_marginEnd="0dp"
+                         android:layout_marginTop="0dp"
+                         android:contentDescription="Return" />
+
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:layout_marginStart="0dp"
+                       app:layout_constraintStart_toStartOf="parent"
+                       android:layout_marginTop="170dp"
+                       app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/icon_city_image_view"/>
+
+            <TextView
+                    android:textColor="@android:color/white"
+                    android:textSize="19sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/condition_city_text_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="70dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="170dp"/>
+
+            <TextView android:id="@+id/temp_city_text_view"
+                      android:layout_width="wrap_content"
+                      android:layout_height="100dp"
+                      android:gravity="center"
+                      android:textColor="@android:color/white"
+                      android:textSize="55sp"
+                      app:layout_constraintStart_toStartOf="parent"
+                      android:layout_marginStart="0dp"
+                      android:layout_marginTop="280dp"
+                      app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:src="@drawable/ic_arrow_upward_white_24dp"
+                       android:layout_marginTop="240dp"
+                       app:layout_constraintTop_toTopOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       android:layout_marginStart="0dp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="30dp"
+                      app:layout_constraintStart_toStartOf="parent"
+                      android:layout_marginStart="35dp"
+                      android:layout_marginTop="240dp"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:textColor="@android:color/white"
+                      android:gravity="center"
+                      android:id="@+id/max_temp_city_text_view"/>
+
+            <ImageView android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:src="@drawable/ic_arrow_downward_white_24dp"
+                       android:layout_marginTop="240dp"
+                       app:layout_constraintTop_toTopOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       android:layout_marginStart="90dp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="30dp"
+                      app:layout_constraintStart_toStartOf="parent"
+                      android:layout_marginStart="125dp"
+                      android:layout_marginTop="240dp"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:textColor="@android:color/white"
+                      android:gravity="center"
+                      android:id="@+id/min_temp_city_text_view"/>
+
+            <RelativeLayout
+                    android:id="@+id/recycler_city_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/temp_city_text_view"
+                    android:background="@color/grayTransparent">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="35dp"
+                          android:text="Forecast"
+                          android:textSize="22sp"
+                          android:textColor="@android:color/white"
+                          tools:layout_editor_absoluteX="10dp"
+                          android:layout_marginTop="8dp"
+                          android:layout_marginStart="10dp"
+                          app:layout_constraintTop_toTopOf="parent"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="43dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="45dp"
+                        android:id="@+id/forecast_city_recycler_view">
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/detail_city_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_city_constraint"
+                    android:background="@color/grayTransparent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="35dp"
+                          android:text="Details"
+                          android:textSize="22sp"
+                          android:textColor="@android:color/white"
+                          tools:layout_editor_absoluteX="10dp"
+                          android:layout_marginTop="8dp"
+                          android:layout_marginStart="10dp"
+                          app:layout_constraintTop_toTopOf="parent"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="43dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"/>
+
+                <ImageView android:layout_width="70dp"
+                           android:layout_height="70dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="70dp"
+                           android:src="@drawable/ic_cloud_white_24dp"
+                           android:id="@+id/details_city_image_view"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="Humidity"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="140dp"
+                          android:layout_marginTop="70dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="25dp"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginEnd="10dp"
+                          android:layout_marginTop="70dp"
+                          android:layout_alignParentEnd="true"
+                          android:gravity="center"
+                          android:id="@+id/humidity_city_text_view"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="92dp"
+                      android:layout_marginStart="140dp"
+                      android:layout_marginEnd="10dp"
+                      android:layout_alignParentStart="true"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="Visibility"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="140dp"
+                          android:layout_marginTop="120dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="25dp"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginEnd="10dp"
+                          android:layout_marginTop="120dp"
+                          android:layout_alignParentEnd="true"
+                          android:gravity="center"
+                          android:id="@+id/visibility_city_text_view"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="142dp"
+                      android:layout_marginStart="140dp"
+                      android:layout_marginEnd="10dp"
+                      android:layout_alignParentStart="true"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="Cloudiness"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="140dp"
+                          android:layout_marginTop="170dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="25dp"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginEnd="10dp"
+                          android:layout_marginTop="170dp"
+                          android:layout_alignParentEnd="true"
+                          android:gravity="center"
+                          android:id="@+id/cloudiness_city_text_view"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="192dp"
+                      android:layout_marginEnd="10dp"
+                      android:layout_alignParentEnd="true"
+                      android:layout_marginBottom="30dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/wind_and_pressure_city_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_city_constraint"
+                    android:background="@color/grayTransparent">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="35dp"
+                          android:text="Wind and Pressure"
+                          android:textSize="22sp"
+                          android:textColor="@android:color/white"
+                          tools:layout_editor_absoluteX="10dp"
+                          android:layout_marginTop="8dp"
+                          android:layout_marginStart="10dp"
+                          app:layout_constraintTop_toTopOf="parent"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@android:color/white"
+                      android:layout_marginTop="43dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"/>
+
+                <ImageView android:layout_width="60dp"
+                           android:layout_height="60dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="70dp"
+                           android:src="@drawable/baseline_toys_white_36dp"
+                           android:backgroundTint="@android:color/white"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="Wind"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="120dp"
+                          android:layout_marginTop="80dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="0.0 m/s"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="120dp"
+                          android:layout_marginTop="100dp"
+                          android:id="@+id/wind_speed_city_text_view"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="Pressure"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="270dp"
+                          android:layout_marginTop="140dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="20dp"
+                          android:text="0000 hPa"
+                          android:textSize="15sp"
+                          android:textColor="@android:color/white"
+                          android:layout_marginStart="270dp"
+                          android:layout_marginTop="160dp"
+                          android:id="@+id/pressure_city_text_view"
+                          android:layout_marginBottom="30dp"/>
+
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</layout>
